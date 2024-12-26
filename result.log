@@ -1,9 +1,0 @@
-============================= test session starts ==============================
-platform darwin -- Python 3.13.1, pytest-8.3.4, pluggy-1.5.0
-rootdir: /Users/srikanthkrishnan/PycharmProjects/APIAutomation
-plugins: Faker-33.1.0, allure-pytest-2.13.5
-collected 3 items
-
-tests/test_to_verify_user_creation.py ...                                [100%]
-
-============================== 3 passed in 1.66s ===============================

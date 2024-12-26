@@ -1,0 +1,9 @@
+# Ignore virtual environment folder
+.venv/
+
+# Ignore Python cache directories (commonly generated during runtime)
+**/__pycache__/
+*.py[cod]
+*.pyo
+
+allure-results/

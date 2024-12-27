@@ -11,7 +11,7 @@ class Config:
 
         # Define the relative path to your config file (assuming it's located in 'config/urls.json')
         # Get the absolute path of the current script
-        script_dir = os.path.dirname(os.path.abspath(__file__))
+        script_dir = script_dir = Path(__file__).parent.resolve() if '__file__' in globals() else Path(os.getcwd())
         config_path = os.path.join(script_dir, "../config", "urls.json")
 
         print(config_path)  # Debug to verify the path

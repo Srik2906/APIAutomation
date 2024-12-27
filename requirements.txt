@@ -1,4 +1,5 @@
 pytest
 requests
+Faker
 python-dotenv
 allure-pytest  # if you're using allure

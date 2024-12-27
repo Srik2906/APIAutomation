@@ -10,9 +10,15 @@ class Config:
          # Get the directory of this script
 
         # Define the relative path to your config file (assuming it's located in 'config/urls.json')
-        config_path = "/Users/srikanthkrishnan/PycharmProjects/APIAutomation/config/urls.json"
-        print(config_path)
+        # Get the absolute path of the current script
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        config_path = os.path.join(script_dir, "../config", "urls.json")
 
+        print(config_path)  # Debug to verify the path
+
+
+        if not os.path.exists(config_path):
+            raise FileNotFoundError(f"Config file '{config_path}' not found")
 
         # Load the JSON data from the file
         with open(config_path, "r") as file:

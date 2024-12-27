@@ -27,4 +27,15 @@ jobs:
       env:
         API_TOKEN: ${{ secrets.API_TOKEN }}
       run: |
+        # Get the directory of the current script
+        script_dir=$(python -c 'import os; print(os.path.dirname(os.path.abspath(__file__)))')
+
+        # Construct the config path (assuming config directory is in the same level as the script)
+        config_path="${script_dir}/config/urls.json" 
+
+        # Check if the config file exists
+        if [ ! -f "$config_path" ]; then
+          echo "Config file not found: $config_path"
+          exit 1
+        fi
         pytest -v

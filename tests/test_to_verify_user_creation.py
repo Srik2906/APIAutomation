@@ -1,9 +1,14 @@
+import logging
+
 import allure
 import pytest
 
 from tests.conftest import api_client
 from utils.config import Config
 from utils.api_client import APIClient
+
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
 
 @allure.suite("User service")
 @pytest.mark.usefixtures("api_client","generate_user_data")
@@ -15,6 +20,7 @@ class TestToVerifyUserCreation:
         create_user_data = api_client.create_user(user_data)
         user_id = create_user_data["id"]
         get_user_data = api_client.get_user(user_id)
+        logger.info(get_user_data)
         assert create_user_data["id"] == get_user_data["id"],"User not created"
 
     @allure.title("Update user")

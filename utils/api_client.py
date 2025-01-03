@@ -1,6 +1,9 @@
+import logging
+
 import requests
 
-
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
 class APIClient:
     def __init__(self, base_url,token=None):
         self.base_url = base_url
@@ -10,6 +13,7 @@ class APIClient:
 
     def create_user(self,user_data):
         response = requests.post(f"{self.base_url}/users",json=user_data,headers=self.headers)
+        logger.info(response.status_code)
         assert response.status_code == 201, f"User creation failed with status code {response.status_code}"
         return response.json()
 
